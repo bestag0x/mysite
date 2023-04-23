@@ -29,7 +29,7 @@ const Overlay = forwardRef(({ caption, scroll }, ref) => (
         <h1><span class='redcolor'>C</span>oming <span class='redcolor'>S</span>oon</h1>
       </div>
     </div>
-    <div style={{ height: "200vh" }}>
+    <div style={{ height: "100vh" }}>
       <div className="dot">
         <h1><span class='redcolor'>C</span>ontacts</h1>If you want to concact me you can find me <a href="">here</a> and <a href="">here</a>, or on whatsapp at +39********** or fill the form below.
       </div>

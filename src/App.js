@@ -1,8 +1,11 @@
 import React, { Suspense, useRef } from "react"
 import { Canvas } from "@react-three/fiber"
-import { Environment } from "@react-three/drei"
+import { Environment, useProgress, Html } from "@react-three/drei"
 import Model from "./Model"
 import Overlay from "./Overlay"
+import Box from './Box'
+
+console.clear()
 
 export default function App() {
   const overlay = useRef()
@@ -12,12 +15,19 @@ export default function App() {
     <>
       <Canvas shadows eventSource={document.getElementById("root")} eventPrefix="client">
         <ambientLight intensity={1} />
-        <Suspense fallback={null}>
+        <Suspense fallback={<Loader />}>
+          <Box />
           <Model scroll={scroll} />
-          <Environment preset="city" />
+          <Environment preset="city"/>
         </Suspense>
       </Canvas>
       <Overlay ref={overlay} caption={caption} scroll={scroll} />
     </>
   )
+}
+
+
+function Loader() {
+  const { progress } = useProgress()
+  return <Html center>{progress} % loaded</Html>
 }
